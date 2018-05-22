@@ -32,7 +32,7 @@
    // console.log(element);
    // console.log(element.classList[1]);
    element.classList.remove(element.classList[1]);
-   console.log(element);
+   // console.log(element);
 
    // console.log(typeof cards);
    // console.log(Array.isArray(cards));
@@ -49,9 +49,10 @@
 
 cards = shuffle(cards);
 for (var i = 0; i < cards.length; i++){
-  // console.log(cards[i]);
+  console.log(cards[i]);
   var newIcon = document.createElement("i");
   newIcon.classList.add(cards[i], 'fa');
+  console.log(cards[i]);
   console.log(newIcon);
   shapeIcons.forEach(function(element){
     element.parentNode.replaceChild(newIcon, element);
