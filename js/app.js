@@ -2,6 +2,24 @@
  * Create a list that holds all of your cards
  */
 
+ let cards = [
+     "fa-diamond",
+     "fa-paper-plane-o",
+     "fa-anchor",
+     "fa-bolt",
+     "fa-cube",
+     "fa-anchor",
+     "fa-leaf",
+     "fa-bomb",
+     "fa-diamond",
+     "fa-paper-plane-o",
+     "fa-anchor",
+     "fa-bolt",
+     "fa-cube",
+     "fa-anchor",
+     "fa-leaf",
+     "fa-bomb",
+ ]
 
 /*
  * Display the cards on the page
@@ -25,21 +43,43 @@ function shuffle(array) {
     return array;
 }
 
-const resetIcon = document.querySelector('.restart');
-const wholePage = document.querySelector('.container');
-const grid = document.querySelector('.deck');
 
-resetIcon.addEventListener('click', function (event) {
-   console.log('The document was clicked');
-   wholePage.reset();
-});
 
-grid.addEventListener('click', function (event) {
-   // console.log('The document was clicked');
-   if (event.target.nodeName.toLowerCase() === 'li') {  // ← verifies target is desired element
-        console.log('A span was clicked with text ' + event.target.textContent);
-    }
-});
+cards = shuffle(cards);
+console.log(cards);
+
+// function testing(){
+//   console.log(This is testing);
+// }
+// const resetIcon = document.querySelector('.restart');
+// const wholePage = document.querySelector('.container');
+// // const grid = document.querySelector('.deck');
+// // const liEl = document.querySelectorAll('.deck li');
+// const card1 = document.getElementById('diamond');
+//
+// resetIcon.addEventListener('click', function (event) {
+//    console.log('The document was clicked');
+//    // wholePage.reset();
+// });
+//
+// // card1.addEventListener('click', function(e){
+// //   console.log('The document was clicked');
+// //   card1.classList.add('open');
+// //   card1.classList.add('show');
+// // })
+//
+// card1.addEventListener('click', function (event) {
+//    console.log('The document was clicked');
+//     }
+// });
+// grid.addEventListener('click', function (event) {
+//    // console.log('The document was clicked');
+//    if (event.target.nodeName.toLowerCase() === 'li') {  // ← verifies target is desired element
+//         console.log('A span was clicked with text ' + event.target.textContent);
+//         liEl.setAttribute('id', 'testing1');
+//         // grid.classList.add('open show');
+//     }
+// });
 /*
  * set up the event listener for a card. If a card is clicked:
  *  - display the card's symbol (put this functionality in another function that you call from this one)
