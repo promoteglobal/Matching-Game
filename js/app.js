@@ -21,6 +21,12 @@
      "fa-bomb",
  ]
 
+ cards = shuffle(cards);
+ for (var i=0; i < cards.length; i++){
+   console.log(cards[i]);
+ }
+
+
  let shapeIcons = document.querySelectorAll('.card .fa');
 
  shapeIcons.forEach(function(element) {
@@ -42,7 +48,7 @@
 })
 
 shapeIcons.forEach(function(element){
-  // cards = shuffle(cards);
+
   // cards.forEach(function(att2){
     element.classList.add('fa-bomb');
   // })
