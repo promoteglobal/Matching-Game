@@ -5,6 +5,9 @@
 
  shapeIcons.forEach(function(element) {
    console.log(element);
+   console.log(element.classList[1]);
+   element.classList.remove(element.classList[1]);
+   console.log(element);
  });
 
  let cards = [
