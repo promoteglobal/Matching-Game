@@ -31,7 +31,7 @@ const grid = document.querySelector('.deck');
 
 resetIcon.addEventListener('click', function (event) {
    console.log('The document was clicked');
-   // wholePage.reset();
+   wholePage.reset();
 });
 
 grid.addEventListener('click', function (event) {
