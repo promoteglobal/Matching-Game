@@ -49,10 +49,13 @@
 
 cards = shuffle(cards);
 for (var i = 0; i < cards.length; i++){
-  console.log(cards[i]);
+  // console.log(cards[i]);
   var newIcon = document.createElement("i");
   newIcon.classList.add(cards[i], 'fa');
   console.log(newIcon);
+  shapeIcons.forEach(function(element){
+    element.parentNode.replaceChild(newIcon, element);
+  })
 }
 // shapeIcons.forEach(function(element){
   // cards.forEach(function(att2){
