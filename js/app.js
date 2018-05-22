@@ -1,15 +1,7 @@
 /*
  * Create a list that holds all of your cards
  */
- let shapeIcons = document.querySelectorAll('.card .fa');
-
- shapeIcons.forEach(function(element) {
-   console.log(element);
-   console.log(element.classList[1]);
-   element.classList.remove(element.classList[1]);
-   console.log(element);
- });
-
+// let element = "";
  let cards = [
      "fa-diamond",
      "fa-paper-plane-o",
@@ -28,6 +20,36 @@
      "fa-leaf",
      "fa-bomb",
  ]
+
+ let shapeIcons = document.querySelectorAll('.card .fa');
+
+ shapeIcons.forEach(function(element) {
+   // console.log(element);
+   // console.log(element.classList[1]);
+   element.classList.remove(element.classList[1]);
+   // console.log(element);
+
+   // console.log(typeof cards);
+   // console.log(Array.isArray(cards));
+
+
+   // console.log(cards);
+ //      cards.forEach(function(att2){
+ //        console.log(cards.classList);
+ //        // element.classList.add(att2);
+ //      })
+ //    console.log(element);
+})
+
+shapeIcons.forEach(function(element){
+  // cards = shuffle(cards);
+  // cards.forEach(function(att2){
+    element.classList.add('fa-bomb');
+  // })
+})
+
+
+
 
 /*
  * Display the cards on the page
@@ -53,9 +75,9 @@ function shuffle(array) {
 
 
 
-cards = shuffle(cards);
-// shapeIcons = shuffle(shapeIcons);
-console.log(cards);
+// cards = shuffle(cards);
+// // shapeIcons = shuffle(shapeIcons);
+// console.log(cards);
 
 // function testing(){
 //   console.log(This is testing);
