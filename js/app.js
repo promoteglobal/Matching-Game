@@ -59,6 +59,9 @@ const resetIcon = document.querySelector('.restart');
 
 resetIcon.addEventListener('click', function (event) {
    console.log('The resetIcon was clicked');
+   cards = shuffle(cards)
+   console.log(cards);
+
    // wholePage.reset();
 });
 
