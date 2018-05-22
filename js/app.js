@@ -25,7 +25,21 @@ function shuffle(array) {
     return array;
 }
 
+const resetIcon = document.querySelector('.restart');
+const wholePage = document.querySelector('.container');
+const grid = document.querySelector('.deck');
 
+resetIcon.addEventListener('click', function (event) {
+   console.log('The document was clicked');
+   // wholePage.reset();
+});
+
+grid.addEventListener('click', function (event) {
+   // console.log('The document was clicked');
+   if (event.target.nodeName.toLowerCase() === 'li') {  // ← verifies target is desired element
+        console.log('A span was clicked with text ' + event.target.textContent);
+    }
+});
 /*
  * set up the event listener for a card. If a card is clicked:
  *  - display the card's symbol (put this functionality in another function that you call from this one)
