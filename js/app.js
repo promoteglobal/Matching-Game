@@ -51,23 +51,23 @@ console.log(cards);
 // function testing(){
 //   console.log(This is testing);
 // }
-// const resetIcon = document.querySelector('.restart');
+const resetIcon = document.querySelector('.restart');
 // const wholePage = document.querySelector('.container');
-// // const grid = document.querySelector('.deck');
-// // const liEl = document.querySelectorAll('.deck li');
+// const grid = document.querySelector('.deck');
+// const liEl = document.querySelectorAll('.deck li');
 // const card1 = document.getElementById('diamond');
-//
-// resetIcon.addEventListener('click', function (event) {
-//    console.log('The document was clicked');
-//    // wholePage.reset();
-// });
-//
-// // card1.addEventListener('click', function(e){
-// //   console.log('The document was clicked');
-// //   card1.classList.add('open');
-// //   card1.classList.add('show');
-// // })
-//
+
+resetIcon.addEventListener('click', function (event) {
+   console.log('The resetIcon was clicked');
+   // wholePage.reset();
+});
+
+// card1.addEventListener('click', function(e){
+//   console.log('The document was clicked');
+//   card1.classList.add('open');
+//   card1.classList.add('show');
+// })
+
 // card1.addEventListener('click', function (event) {
 //    console.log('The document was clicked');
 //     }
