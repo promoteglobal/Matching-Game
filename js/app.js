@@ -1,6 +1,11 @@
 /*
  * Create a list that holds all of your cards
  */
+ let shapeIcons = document.querySelectorAll('.card .fa');
+
+ shapeIcons.forEach(function(element) {
+   console.log(element);
+ });
 
  let cards = [
      "fa-diamond",
@@ -46,6 +51,7 @@ function shuffle(array) {
 
 
 cards = shuffle(cards);
+// shapeIcons = shuffle(shapeIcons);
 console.log(cards);
 
 // function testing(){
@@ -56,11 +62,14 @@ const resetIcon = document.querySelector('.restart');
 // const grid = document.querySelector('.deck');
 // const liEl = document.querySelectorAll('.deck li');
 // const card1 = document.getElementById('diamond');
+// let shapeIcons = document.querySelectorAll('.card .fa');
 
 resetIcon.addEventListener('click', function (event) {
    console.log('The resetIcon was clicked');
    cards = shuffle(cards)
    console.log(cards);
+   // shapeIcons = shuffle(shapeIcons)
+   // console.log(shapeIcons);
 
    // wholePage.reset();
 });
