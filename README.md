@@ -17,7 +17,7 @@ Update. I ended up manually updating my material directly to the website without
 
 ## How to play
 
-Use your mouse and guess where the 8 matching icons are.  You win the game when you match all 8 icons.
+Use and click with the left button on your mouse to guess where the 8 matching icons are.  You win the game when you match all 8 icons.
 
 ## Built With
 

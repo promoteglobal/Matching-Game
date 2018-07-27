@@ -1,145 +1,189 @@
-/*
- * Create a list that holds all of your cards
- */
+//variables
+let cards = [
+    "fa-diamond",
+    "fa-paper-plane-o",
+    "fa-anchor",
+    "fa-bolt",
+    "fa-cube",
+    "fa-anchor",
+    "fa-leaf",
+    "fa-bomb",
+    "fa-diamond",
+    "fa-paper-plane-o",
+    "fa-bicycle",
+    "fa-bolt",
+    "fa-cube",
+    "fa-bicycle",
+    "fa-leaf",
+    "fa-bomb",
+];
 
-// let element = "";
- let cards = [
-     "fa-diamond",
-     "fa-paper-plane-o",
-     "fa-anchor",
-     "fa-bolt",
-     "fa-cube",
-     "fa-anchor",
-     "fa-leaf",
-     "fa-bomb",
-     "fa-diamond",
-     "fa-paper-plane-o",
-     "fa-anchor",
-     "fa-bolt",
-     "fa-cube",
-     "fa-anchor",
-     "fa-leaf",
-     "fa-bomb",
- ]
-
-
-
-
- let shapeIcons = document.querySelectorAll('.card .fa');
-
- shapeIcons.forEach(function(element) {
-  // let element1 = element;
-   // console.log(element);
-   // console.log(element.classList[1]);
-   element.classList.remove(element.classList[1]);
-   // console.log(element);
-
-   // console.log(typeof cards);
-   // console.log(Array.isArray(cards));
-
-
-   // console.log(cards);
- //      cards.forEach(function(att2){
- //        console.log(cards.classList);
- //        // element.classList.add(att2);
- //      })
- //    console.log(element);
-})
-
-
-cards = shuffle(cards);
-for (var i = 0; i < cards.length; i++){
-  console.log(cards[i]);
-  var newIcon = document.createElement("i");
-  newIcon.classList.add(cards[i], 'fa');
-  console.log(cards[i]);
-  console.log(newIcon);
-  shapeIcons.forEach(function(element){
-    element.parentNode.replaceChild(newIcon, element);
-  })
-}
-// shapeIcons.forEach(function(element){
-  // cards.forEach(function(att2){
-
-  // })
+let iconClass2ndCard; //Extracted child class from second card
+let iconClass2nd; //Extracted Icon class from second icon
+let iconClass1stCard; //Extracted child class from first card
+let iconClass1st; //Extracted Icon class from first icon
+let firstCardEl; //Whole Element of first card
+let secondCardEl; //Whole Element of second card
+let countMatchesN = 0;
+let starRating = 5;
+let firstCardId;
+let secondCardId
 
 
 
-
-
-/*
- * Display the cards on the page
- *   - shuffle the list of cards using the provided "shuffle" method below
- *   - loop through each card and create its HTML
- *   - add each card's HTML to the page
- */
-
-// Shuffle function from http://stackoverflow.com/a/2450976
+ // Shuffle function from http://stackoverflow.com/a/2450976
 function shuffle(array) {
-    var currentIndex = array.length, temporaryValue, randomIndex;
+  let currentIndex = array.length, temporaryValue, randomIndex;
 
-    while (currentIndex !== 0) {
-        randomIndex = Math.floor(Math.random() * currentIndex);
-        currentIndex -= 1;
-        temporaryValue = array[currentIndex];
-        array[currentIndex] = array[randomIndex];
-        array[randomIndex] = temporaryValue;
-    }
+  while (currentIndex !== 0) {
+    randomIndex = Math.floor(Math.random() * currentIndex);
+    currentIndex -= 1;
+    temporaryValue = array[currentIndex];
+    array[currentIndex] = array[randomIndex];
+    array[randomIndex] = temporaryValue;
+  }
 
     return array;
 }
 
+cards = shuffle(cards);
+
+// Create and Place shuffled new elements in their new spot
+for (let i = 0; i < cards.length; i++){
+  let newIcon = document.createElement("i");
+  newIcon.classList.add(cards[i], 'fa');
+  let parent = document.getElementById(i);
+  let child = document.getElementById(i+16);
+  parent.replaceChild(newIcon, child);
+}
 
 
-// cards = shuffle(cards);
-// // shapeIcons = shuffle(shapeIcons);
-// console.log(cards);
 
-// function testing(){
-//   console.log(This is testing);
-// }
-const resetIcon = document.querySelector('.restart');
-// const wholePage = document.querySelector('.container');
-// const grid = document.querySelector('.deck');
-// const liEl = document.querySelectorAll('.deck li');
-// const card1 = document.getElementById('diamond');
-// let shapeIcons = document.querySelectorAll('.card .fa');
-
-resetIcon.addEventListener('click', function (event) {
-   console.log('The resetIcon was clicked');
-   cards = shuffle(cards)
-   console.log(cards);
-   // shapeIcons = shuffle(shapeIcons)
-   // console.log(shapeIcons);
-
-   // wholePage.reset();
+// Count the number of clicks and reduce stars when reach count 25,35,45,55.  Counting clicks= https://stackoverflow.com/questions/27153750/count-clicks-on-element-with-javascript
+document.addEventListener('click', function (event){
+  if (event.target.classList.contains('card') || event.target.classList.contains('fa') && !event.target.classList.contains('la')){
+    let element = event.currentTarget;
+    element.clicks = (element.clicks || 0) + 1;
+    document.querySelector('.moves').innerHTML = element.clicks;
+    if (element.clicks === 25 ){
+      const star1 = document.getElementById("a");
+      star1.parentNode.removeChild(star1);
+      starRating = 4;
+    }
+    if (element.clicks === 35 ){
+      const star2 = document.getElementById("b");
+      star2.parentNode.removeChild(star2);
+      starRating = 3;
+    }
+    if (element.clicks === 45 ){
+      const star3 = document.getElementById("c");
+      star3.parentNode.removeChild(star3);
+      starRating = 2;
+    }
+    if (element.clicks === 55 ){
+      const star4 = document.getElementById("d");
+      star4.parentNode.removeChild(star4);
+      starRating = 1;
+    }
+  }
 });
 
-// card1.addEventListener('click', function(e){
-//   console.log('The document was clicked');
-//   card1.classList.add('open');
-//   card1.classList.add('show');
-// })
 
-// card1.addEventListener('click', function (event) {
-//    console.log('The document was clicked');
-//     }
-// });
-// grid.addEventListener('click', function (event) {
-//    // console.log('The document was clicked');
-//    if (event.target.nodeName.toLowerCase() === 'li') {  // ← verifies target is desired element
-//         console.log('A span was clicked with text ' + event.target.textContent);
-//         liEl.setAttribute('id', 'testing1');
-//         // grid.classList.add('open show');
-//     }
-// });
-/*
- * set up the event listener for a card. If a card is clicked:
- *  - display the card's symbol (put this functionality in another function that you call from this one)
- *  - add the card to a *list* of "open" cards (put this functionality in another function that you call from this one)
- *  - if the list already has another card, check to see if the two cards match
- *    + if the cards do match, lock the cards in the open position (put this functionality in another function that you call from this one)
- *    + if the cards do not match, remove the cards from the list and hide the card's symbol (put this functionality in another function that you call from this one)
- *    + increment the move counter and display it on the page (put this functionality in another function that you call from this one)
- *    + if all cards have matched, display a message with the final score (put this functionality in another function that you call from this one)
- */
+
+// set timer = https://stackoverflow.com/questions/37187504/javascript-second-counter
+let seconds = 0;
+const timerEl = document.getElementById('seconds-counter');
+
+function incrementSeconds() {
+  seconds += 1;
+  timerEl.innerText = "Timer: " + seconds + " seconds.";
+}
+
+const cancel = setInterval(incrementSeconds, 1000);
+
+
+
+// Match=stay open, turn green.  No match=both close.   Counting clicks= https://stackoverflow.com/questions/27153750/count-clicks-on-element-with-javascript
+document.addEventListener('click', function (event){
+  if (event.target.classList.contains('card') || event.target.classList.contains('fa') && !event.target.classList.contains('la')){ //If click on card or Icon
+    let element = event.currentTarget;
+    element.clicks = (element.clicks || 1) + 0; //I orignally had ||0) +1, but because (I think) there are 2 counting listeners, it acts funny with the counting of clicks and reducing of stars function. so I figured out something that works for both.
+    if (element.clicks % 2 === 0 ){ //...........................................................Second card selected
+      if (event.target.classList.contains('card')){//if click on card
+        iconClass2ndCard = event.target.childNodes[1].classList.item(0);
+        secondCardEl = event.target;
+        secondCardId = event.target.id;
+        console.log('iconClass2ndCard ' + iconClass2ndCard);
+        console.log('secondCardEl ' + secondCardEl);
+        console.log('secondCardId '+ secondCardId);
+        if (iconClass1stCard === iconClass2ndCard && firstCardEl !== secondCardEl){ //.........If they match
+          event.target.classList.remove('open','show');
+          event.target.classList.add('match');
+          firstCardEl.classList.add('match');
+          countMatches();
+          console.log('I matched!');
+        }else if (event.target.classList.contains('match')){//...........if second card is already match do nothing
+          console.log('I contain match');
+          element.clicks = element.clicks - 1;
+        }else{//................................................................If they don't match
+          event.target.classList.add('open','show');
+          setTimeout(function(){ firstCardEl.classList.remove('open','show') }, 270);
+          setTimeout(function(){ secondCardEl.classList.remove('open','show') }, 270);
+          console.log('It didnt match');
+         if (event.target.classList.contains('match')){//...........if second card is already match do nothing
+          console.log('I contain match');
+          element.clicks = element.clicks - 1;
+        }}
+      }else{// If click on icon
+        iconClass2nd = event.target.classList.item(0);
+        console.log('iconClass2nd '+ iconClass2nd);
+          if(iconClass2nd === iconClass1stCard && firstCardEl){
+            firstCardEl.classList.remove('open','show')
+          }
+          else if (event.target.parentNode.classList.contains('match')){
+             console.log('I contain match');
+             element.clicks = element.clicks - 1;
+         }
+      }
+    }else{ //....................................................................................First card selected
+      if (event.target.classList.contains('card')){ //if click on card
+        iconClass1stCard = event.target.childNodes[1].classList.item(0);
+        firstCardEl = event.target;
+        firstCardId = event.target.id;
+        event.target.classList.add('open','show');
+        console.log('iconClass1stCard ' + iconClass1stCard);
+        console.log('firstCardEl '+ firstCardEl);
+        console.log('firstCardId '+ firstCardId);
+       }if (event.target.classList.contains('match')){
+          console.log('I contain match');
+          element.clicks = element.clicks - 1;
+      }else{//if click on icon
+        iconClass1st = event.target.classList.item(0);
+        event.target.classList.add('open','show');
+        console.log('iconClass1st ' + iconClass1st);
+        if (event.target.classList.contains('match')){
+           console.log('I contain match');
+           element.clicks = element.clicks - 1;
+       }
+      }
+    }
+  }
+});
+
+//Reset game
+const resetIcon = document.querySelector('.restart');
+resetIcon.addEventListener('click', function (event) {
+  location.reload();
+});
+
+
+
+//Popup Congrats
+function countMatches(){
+  countMatchesN = countMatchesN + 1;
+  console.log(countMatchesN);
+  if (countMatchesN === 8){
+    setTimeout(function(){alert("Your time is " + seconds + " seconds and your star rating is " + starRating + ". Do you want to play again?") }, 470);;
+    setTimeout(function(){location.reload(); }, 570);;
+  }
+}
